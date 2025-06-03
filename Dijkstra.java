@@ -19,6 +19,7 @@ public class Dijkstra {
      * // Cria um grafo com 3 vértices:
      * Dijkstra dijkstra = new Dijkstra(3);
      */
+
     public Dijkstra(final int numVertices) {
         vertices = new int[numVertices][numVertices];
     }
@@ -43,6 +44,7 @@ public class Dijkstra {
      *   em ambas as direções (origem→destino e destino→origem)
      * - Para grafos direcionados, remova a segunda atribuição
      */
+
     public void criarAresta(final int noOrigem, final int noDestino, final int peso) {
         if (peso < 1) {
             throw new IllegalArgumentException("O peso do nó origem [" + noOrigem +
@@ -76,6 +78,7 @@ public class Dijkstra {
      * // naoVisitados = {1, 2, 3}
      * int proximo = getMaisProximo(listaCustos, naoVisitados); // retornará 2
      */
+
     private int getMaisProximo(final int listaCustos[], final Set<Integer> naoVisitados) {
         int minDistancia = Integer.MAX_VALUE;
         int noProximo = 0;
@@ -104,6 +107,7 @@ public class Dijkstra {
      * // Para um grafo com conexões: 0->1 (peso 2), 0->2 (peso 3)
      * List<Integer> vizinhos = getVizinhos(0); // retornará [1, 2]
      */
+
     private List<Integer> getVizinhos(final int no) {
         List<Integer> vizinhos = new ArrayList<Integer>();
         for (int i = 0; i < vertices.length; i++) {
@@ -132,6 +136,7 @@ public class Dijkstra {
      * int custo = getCusto(0, 1);  // retorna 5
      * int custo2 = getCusto(1, 0); // retorna 0 (caso grafo seja direcionado)
      */
+
     private int getCusto(final int noOrigem, final int noDestino) {
         return vertices[noOrigem][noDestino];
     }
@@ -166,6 +171,7 @@ public class Dijkstra {
      * List<Integer> caminho = caminhoMinimo(0, 2);
      * // Retorna [0, 1, 2] (caminho com custo total 3)
      */
+
     public List<Integer> caminhoMinimo(final int noOrigem, final int noDestino) {
 
         int custo[] = new int[vertices.length];
@@ -218,6 +224,7 @@ public class Dijkstra {
      * List<Integer> caminho = caminhoMaisProximo(antecessor, 2);
      * // Retorna [0, 1, 2] (caminho 0 → 1 → 2)
      */
+
     public List<Integer> caminhoMaisProximo(final int antecessor[], int noMaisProximo) {
         List<Integer> caminho = new ArrayList<Integer>();
         caminho.add(noMaisProximo);
